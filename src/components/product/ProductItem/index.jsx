@@ -19,6 +19,7 @@ export default ({
 	globalCollections,
 	collections,
 	description,
+	shortDescription,
 	id,
 	slug,
 	name,
@@ -90,7 +91,7 @@ export default ({
 					quantity={quantity}
 					skus={skus}
 					images={images}
-					description={description}
+					description={shortDescription}
 					collections={collections}
 					gender={gender}
 					tags={tags}

@@ -3,17 +3,19 @@ import { ServerStyleSheet } from "styled-components";
 
 export default class MyDocument extends Document {
 	static async getInitialProps(ctx) {
-		const pageProps = await super.getInitialProps(ctx);
-
 		const styleSheet = new ServerStyleSheet();
 		const originalRenderPage = ctx.renderPage;
+
+		let pageProps;
 
 		try {
 			ctx.renderPage = () =>
 				originalRenderPage({
-					enhanceApp: App => pageProps =>
-						styleSheet.collectStyles(<App {...pageProps} />)
+					enhanceApp: App => props =>
+						styleSheet.collectStyles(<App {...props} />)
 				});
+
+			pageProps = await Document.getInitialProps(ctx);
 
 			pageProps.styles = (
 				<>

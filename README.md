@@ -1,6 +1,6 @@
-# Elliot's ZEIT Next.js Ecommerce Boilerplate
+# Elliot's Vercel Next.js Ecommerce Boilerplate
 
-![ELLIOT X ZEIT](elliot-zeit.jpg)
+![ELLIOT X VERCEL](elliot-vercel.jpg)
 
 ## Features
 
@@ -13,40 +13,7 @@
 - Fully customizable
 - Mobile-first and fully responsive
 - Cutting-edge project structure and architecture (GraphQL, Next.js and serverless)
-- Continuous deployment with [ZEIT Now](https://zeit.co)
-
-## Core Team
-
-If you're new and need some guidance feel free reach out to any of our core team members:
-
-- [Franco Arza](https://github.com/arzafran): `@arzafran`
-- [Ismail Ghallou](https://github.com/smakosh): `@smakosh`
-- [Omoefe Dukuye](https://github.com/un-tethered): `@un-tethered`
-
-## Structure
-
-```bash
-.
-├── src
-│   ├── components          # Components
-│   │   │── cart              # Components used on the cart page
-│   │   │── checkout          # Components used on the checkout page
-│   │   │── common            # Common components
-│   │   │── listing           # Components used on the landing page
-│   │   │── product           # Components used on the product page
-│   │   └── theme             # Header, Footer, global style and theme config
-│   ├── config              # Config variables
-│   ├── helpers             # Helpers functions
-│   ├── hoc                 # Higher order components
-│   ├── lang                # i18n json files
-│   ├── pages               # Pages
-│   ├── providers           # Providers
-│   ├── queries             # GraphQL queries we run during build time
-│   ├── reducers            # Reducers
-│   ├── scripts             # Scripts meant to be executed before building the website
-│   └── pages               # Pages
-└── public/.well-known/    # Where you'd put the Apple verification file
-```
+- Continuous deployment with [Vercel](https://vercel.co)
 
 ## Prerequisites
 
@@ -107,7 +74,7 @@ If you're new and need some guidance feel free reach out to any of our core team
    yarn run dev
    ```
 
-7. When deploying to [ZEIT Now](https://zeit.co), you will have to set the [Now secrets](https://zeit.co/docs/v2/build-step#adding-secrets), so ensure that they've been added:
+7. When deploying to [Vercel](https://vercel.co), you will have to set the [Now secrets](https://vercel.co/docs/v2/build-step#adding-secrets), so ensure that they've been added:
 
    ```bash
    now secrets add base_url <your domain name>
@@ -125,8 +92,8 @@ You can easily customize the theme by changing the values on the theme config [h
 
 We do support [Next js preview mode](https://nextjs.org/docs/advanced-features/preview-mode)
 
-1. Add `ELLIOT_PREVIEW_MODE_SECRET` as env variable with a secret value to be kept somewhere safe, you can add the env variable to your ZEIT Now project settings
-   ![ZEIT Now env variables](zeit-env-section.png)
+1. Add `ELLIOT_PREVIEW_MODE_SECRET` as env variable with a secret value to be kept somewhere safe, you can add the env variable to your Vercel project settings
+   ![Vercel env variables](vercel-env-section.png)
 
 2. Now visit the following link
 
@@ -136,7 +103,73 @@ We do support [Next js preview mode](https://nextjs.org/docs/advanced-features/p
 
 3. You can now open the same product on [Elliot](https://elliot.store), edit it and see the changes live when ever you refresh the product page
 
-> You might have to upgrade your ZEIT Now account in order to prolonge the serverless function running time to go over 10 seconds.
+> You might have to upgrade your Vercel account in order to prolonge the serverless function running time to go over 10 seconds.
+
+## Core Team
+
+If you're new and need some guidance feel free reach out to any of our core team members:
+
+- [Franco Arza](https://github.com/arzafran): `@arzafran`
+- [Ismail Ghallou](https://github.com/smakosh): `@smakosh`
+- [Omoefe Dukuye](https://github.com/un-tethered): `@un-tethered`
+
+## Structure
+
+```bash
+.
+├── src
+│   ├── assets              # Assets used including the default thumbnail of the website
+│   ├── components          # Components
+│   │   │── cart              # Components used on the cart page
+│   │   │── checkout          # Components used on the checkout page
+│   │   │── common            # Common components
+│   │   │── listing           # Components used on the landing page
+│   │   │── product           # Components used on the product page
+│   │   │── shipping          # Components used on the checkout page
+│   │   └── theme             # Header, Footer, global style and theme config
+│   ├── config              # Config variables
+│   ├── helpers             # Helpers functions
+│   │   │── buildtime         # queries run on build time
+│   │   │── constants         # constants
+│   │   │── i18n              # functions to get browser's locale and anything related to i18n
+│   │   │── payment           # payment logic
+│   │   │── runtime           # queries run on run time
+│   │   │── shipping          # shipping logic
+│   │   └── ...               # 3 files, alert out of stock, attributes and isEmpty without lodash
+│   ├── hoc                 # Higher order components
+│   ├── hooks               # Custom hooks
+│   ├── lang                # i18n json files
+│   ├── pages               # Pages
+│   │   │── [lang]            # To have a page for each language supported
+│   │   │   │── collection            # Collection page
+│   │   │   │   └── [slug]
+│   │   │   │── product               # Product page
+│   │   │   │   └── [slug]
+│   │   │   │── about                 # About page
+│   │   │   │── cart                  # Cart page
+│   │   │   │── checkout              # Checkout page
+│   │   │   │── failed-order          # Failed order page
+│   │   │   │── faqs                  # Faqs page
+│   │   │   │── index                 # Home page
+│   │   │   │── privacy-policy        # Privacy policy page
+│   │   │   │── return-policy         # Return policy page
+│   │   │   │── successful-order      # About page
+│   │   │   └── terms-and-conditions  # Terms and conditions page
+│   │   │── api               # Next API routes
+│   │   │   │── exit-preview    # To exit preview mode
+│   │   │   └── preview         # To enable preview mode
+│   │   │── _app
+│   │   │── _document
+│   │   │── _error
+│   │   │── product
+│   │   │── shipping
+│   │   └── _error
+│   ├── providers           # Providers
+│   ├── queries             # GraphQL queries we run during build time
+│   ├── reducers            # Reducers
+│   └── scripts             # Scripts meant to be executed before building the website
+└── public/.well-known/    # Where you'd put the Apple verification file
+```
 
 ## Built with
 
@@ -153,6 +186,6 @@ If you have discovered a 🐜 or have a feature suggestion, feel free to create 
 
 ## Enabling Digital Wallets
 
-To enable wallets such as Apple Pay, your ZEIT package will need a verification file from Elliot.
+To enable wallets such as Apple Pay, your Vercel package will need a verification file from Elliot.
 
 To receive that verification file, and be added to our Slack, email our [Partnerships team](mailto:devs@elliot.store).
