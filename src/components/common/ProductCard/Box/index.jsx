@@ -5,9 +5,9 @@ import { useCurrency } from "providers/CurrencyProvider";
 import Label from "components/common/Label";
 import Prices from "components/common/Prices";
 // import { HeartIcon } from "components/common/Icons";
-import { Thumbnail, Details } from "./styles";
+import { Thumbnail, Details, AddToCart } from "./styles";
 
-export default ({ slug, name, images, skus, onClick, locale }) => {
+export default ({ quantity, slug, name, images, skus, onClick, locale }) => {
 	const { state: currency, exchangeRate, loading } = useCurrency();
 	return (
 		<div>
@@ -40,10 +40,20 @@ export default ({ slug, name, images, skus, onClick, locale }) => {
 						)}
 					</a>
 				</Link>
-				<div>
-					<button type="button" onClick={onClick}>
+				<AddToCart>
+					<button
+						type="button"
+						disabled={parseFloat(quantity) <= 0}
+						onClick={onClick}
+					>
 						<strong>
-							<FormattedMessage id="button.add_to_cart" />
+							<FormattedMessage
+								id={
+									parseFloat(quantity) <= 0
+										? "product.out_of_stock"
+										: "button.add_to_cart"
+								}
+							/>
 						</strong>
 					</button>
 					{/* <ul>
@@ -51,7 +61,7 @@ export default ({ slug, name, images, skus, onClick, locale }) => {
 						<HeartIcon width={16} height={16} />
 					</li>
 				</ul> */}
-				</div>
+				</AddToCart>
 				{skus?.edges[0]?.node?.salePrice && (
 					<Label>
 						<span>Sale</span>

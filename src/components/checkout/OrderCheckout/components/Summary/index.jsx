@@ -59,11 +59,11 @@ export default () => {
 									"..."
 								) : (
 									<NumberFormat
-										value={
+										value={Math.round(
 											(((sku.salePrice || sku.basePrice) * exchangeRate) /
 												100) *
-											quantity
-										}
+												quantity
+										)}
 										displayType={"text"}
 										thousandSeparator={true}
 										prefix={currency}
@@ -75,12 +75,12 @@ export default () => {
 				<SummaryItem
 					display
 					label={formatMessage({ id: "shipping.subtotal" })}
-					sum={subTotal}
+					sum={Math.round(subTotal)}
 				/>
 				<SummaryItem
 					display={!!promotion}
 					label={usePromotionLabel()}
-					sum={promotionSum}
+					sum={Math.round(promotionSum)}
 				/>
 				<Item>
 					<h3>
@@ -119,7 +119,7 @@ export default () => {
 								"..."
 							) : (
 								<NumberFormat
-									value={orderTotal}
+									value={Math.round(orderTotal)}
 									displayType={"text"}
 									thousandSeparator={true}
 									prefix={currency}

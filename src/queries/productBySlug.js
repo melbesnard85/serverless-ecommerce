@@ -11,6 +11,7 @@ query product($domainId: ID!, $slug: String!) {
             gender
             variantCount
             description
+            shortDescription
             insuranceAmount
             quantity
             slug

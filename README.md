@@ -34,7 +34,13 @@
 
 > Follow this [Guide](https://github.com/helloiamelliot/elliot-serverless-ecommerce#enabling-digital-wallets) to get the Apple verification file
 
+> You might have to upgrade your Vercel account in order to prolonge the serverless function running time to go over 10 seconds in order to enable all the benefits of SSG on run time
+
+[Video tutorial](https://youtu.be/SJ92bp1y1I0)
+
 ### Locally
+
+#### Using the CLI
 
 1. Install the [Elliot CLI](https://github.com/helloiamelliot/elliot-cli) running
 
@@ -88,23 +94,6 @@
 
 You can easily customize the theme by changing the values on the theme config [here](https://github.com/helloiamelliot/elliot-serverless-ecommerce/blob/master/src/components/theme/index.js)
 
-## Preview mode
-
-We do support [Next js preview mode](https://nextjs.org/docs/advanced-features/preview-mode)
-
-1. Add `ELLIOT_PREVIEW_MODE_SECRET` as env variable with a secret value to be kept somewhere safe, you can add the env variable to your Vercel project settings
-   ![Vercel env variables](vercel-env-section.png)
-
-2. Now visit the following link
-
-   ```bash
-   <your website link>/api/preview?secret=<ELLIOT_PREVIEW_MODE_SECRET value>&slug=<your product slug>
-   ```
-
-3. You can now open the same product on [Elliot](https://elliot.store), edit it and see the changes live when ever you refresh the product page
-
-> You might have to upgrade your Vercel account in order to prolonge the serverless function running time to go over 10 seconds.
-
 ## Core Team
 
 If you're new and need some guidance feel free reach out to any of our core team members:
@@ -155,9 +144,6 @@ If you're new and need some guidance feel free reach out to any of our core team
 │   │   │   │── return-policy         # Return policy page
 │   │   │   │── successful-order      # About page
 │   │   │   └── terms-and-conditions  # Terms and conditions page
-│   │   │── api               # Next API routes
-│   │   │   │── exit-preview    # To exit preview mode
-│   │   │   └── preview         # To enable preview mode
 │   │   │── _app
 │   │   │── _document
 │   │   │── _error
@@ -176,7 +162,7 @@ If you're new and need some guidance feel free reach out to any of our core team
 - Next.js
 - React
 - VSCode
-- And these useful of JavaScript libraries [package.json](package.json)
+- And these useful JavaScript libraries [package.json](package.json)
 
 ## Want to contribute?
 

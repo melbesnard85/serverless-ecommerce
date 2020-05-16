@@ -11,20 +11,12 @@ import getCheckout from "helpers/buildtime/getCheckout";
 import getLegal from "helpers/buildtime/getLegal";
 import getProductBySlug from "helpers/buildtime/getProductBySlug";
 
-const Product = ({
-	legal,
-	product,
-	collections,
-	seoDetails,
-	checkout,
-	preview
-}) => (
+const Product = ({ legal, product, collections, seoDetails, checkout }) => (
 	<Layout
 		collections={collections}
 		seoDetails={seoDetails}
 		checkout={checkout}
 		legal={legal}
-		preview={preview}
 	>
 		{product.id ? (
 			<>
@@ -59,10 +51,7 @@ export const getStaticPaths = async () => {
 	};
 };
 
-export const getStaticProps = async ({
-	params: { slug, lang },
-	preview = null
-}) => {
+export const getStaticProps = async ({ params: { slug, lang } }) => {
 	const [
 		collections,
 		product,
@@ -71,7 +60,7 @@ export const getStaticProps = async ({
 		legal
 	] = await Promise.all([
 		getCollections(),
-		getProductBySlug(slug, preview),
+		getProductBySlug(slug),
 		getSeoDetails(),
 		getCheckout(),
 		getLegal()
@@ -85,8 +74,7 @@ export const getStaticProps = async ({
 			collections,
 			seoDetails,
 			checkout,
-			legal,
-			preview
+			legal
 		}
 	};
 };
