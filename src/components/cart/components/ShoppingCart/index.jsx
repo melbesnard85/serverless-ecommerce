@@ -107,14 +107,18 @@ const ShoppingCart = () => {
 													<>
 														{sku.salePrice && (
 															<NumberFormat
-																value={(sku.salePrice * exchangeRate) / 100}
+																value={Math.round(
+																	(sku.salePrice * exchangeRate) / 100
+																)}
 																displayType={"text"}
 																thousandSeparator={true}
 																prefix={currency}
 															/>
 														)}
 														<NumberFormat
-															value={(sku.basePrice * exchangeRate) / 100}
+															value={Math.round(
+																(sku.basePrice * exchangeRate) / 100
+															)}
 															displayType={"text"}
 															thousandSeparator={true}
 															prefix={currency}
@@ -143,12 +147,12 @@ const ShoppingCart = () => {
 															"..."
 														) : (
 															<NumberFormat
-																value={
+																value={Math.round(
 																	(((sku.salePrice || sku.basePrice) *
 																		exchangeRate) /
 																		100) *
-																	quantity
-																}
+																		quantity
+																)}
 																displayType={"text"}
 																thousandSeparator={true}
 																prefix={currency}

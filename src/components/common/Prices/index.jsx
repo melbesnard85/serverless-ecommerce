@@ -12,7 +12,7 @@ export default ({ salePrice, basePrice, loading, exchangeRate, currency }) => (
 				"..."
 			) : (
 				<NumberFormat
-					value={(basePrice * exchangeRate) / 100}
+					value={Math.round((basePrice * exchangeRate) / 100)}
 					displayType={"text"}
 					thousandSeparator={true}
 					prefix={currency}
@@ -25,7 +25,7 @@ export default ({ salePrice, basePrice, loading, exchangeRate, currency }) => (
 					"..."
 				) : (
 					<NumberFormat
-						value={(salePrice * exchangeRate) / 100}
+						value={Math.round((salePrice * exchangeRate) / 100)}
 						displayType={"text"}
 						thousandSeparator={true}
 						prefix={currency}

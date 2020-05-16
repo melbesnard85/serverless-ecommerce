@@ -11,30 +11,16 @@ export const Container = styled.div`
 export const Banner = styled.div`
 	padding: 1.2rem 0;
 	text-align: center;
-	color: ${({ preview }) => (preview ? "#fff" : "#000")};
-	background: ${({
-		preview,
+	color: ${({
 		theme: {
-			colors: { accent, black }
+			colors: { black }
 		}
-	}) => (preview ? black : accent)};
-
-	${({ preview }) =>
-		preview &&
-		`
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		button {
-			background: none;
-			border: none;
+	}) => black};
+	background: ${({
+		theme: {
+			colors: { accent }
 		}
-
-		span {
-			margin-right: 1rem;
-		}
-	`}
+	}) => accent};
 `;
 
 export const Wrapper = styled.div`

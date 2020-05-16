@@ -34,53 +34,6 @@ export const Thumbnail = styled.div`
 		}
 	}
 
-	div {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		padding: 0.3rem 0 0;
-		display: flex;
-		justify-content: space-between;
-		background-color: ${({ theme: { colors } }) => colors.white};
-		transition: ${({ theme: { transitions } }) => transitions.custom750};
-		transform: translateY(100%);
-
-		button {
-			font-size: 10pt;
-			text-transform: uppercase;
-			font-weight: 500;
-			align-self: center;
-			border: none;
-			background: none;
-			transition: ${({ theme: { transitions } }) => transitions.default400};
-			color: ${({
-				theme: {
-					colors: { black }
-				}
-			}) => black};
-
-			&:hover {
-				color: ${({
-					theme: {
-						colors: { accent }
-					}
-				}) => accent};
-			}
-		}
-
-		ul {
-			li {
-				display: inline-block;
-				cursor: pointer;
-
-				&:first-child {
-					margin-right: 0.625rem;
-				}
-			}
-		}
-	}
-
 	&:hover {
 		div {
 			transform: translateY(0);
@@ -124,16 +77,63 @@ export const Details = styled.div`
 	}
 `;
 
-export const Body = styled.div`
-	padding: 2rem 0;
+// export const Body = styled.div`
+// 	padding: 2rem 0;
 
-	p {
-		line-height: 1.6em;
-		font-size: 12pt;
-		color: ${({ theme: { colors } }) => colors.darkGray};
+// 	p {
+// 		line-height: 1.6em;
+// 		font-size: 12pt;
+// 		color: ${({ theme: { colors } }) => colors.darkGray};
+// 	}
+// `;
+
+// export const Footer = styled.div`
+// 	text-align: left;
+// `;
+
+export const AddToCart = styled.div`
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 0.3rem 0 0;
+	display: flex;
+	justify-content: space-between;
+	background-color: ${({ theme: { colors } }) => colors.white};
+	transition: ${({ theme: { transitions } }) => transitions.custom750};
+	transform: translateY(100%);
+
+	button {
+		font-size: 10pt;
+		text-transform: uppercase;
+		font-weight: 500;
+		align-self: center;
+		border: none;
+		background: none;
+		transition: ${({ theme: { transitions } }) => transitions.default400};
+		color: ${({
+			theme: {
+				colors: { black }
+			}
+		}) => black};
+
+		&:hover {
+			color: ${({
+				theme: {
+					colors: { accent }
+				}
+			}) => accent};
+		}
 	}
-`;
 
-export const Footer = styled.div`
-	text-align: left;
+	ul {
+		li {
+			display: inline-block;
+			cursor: pointer;
+
+			&:first-child {
+				margin-right: 0.625rem;
+			}
+		}
+	}
 `;

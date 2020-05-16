@@ -88,10 +88,10 @@ const CartSidebar = ({ toggleSidebar }) => {
 											"..."
 										) : (
 											<NumberFormat
-												value={
+												value={Math.round(
 													((sku.salePrice || sku.basePrice) * exchangeRate) /
-													100
-												}
+														100
+												)}
 												displayType={"text"}
 												thousandSeparator={true}
 												prefix={currency}
@@ -120,12 +120,12 @@ const CartSidebar = ({ toggleSidebar }) => {
 					</div>
 					<CartFooter>
 						<SummaryItem
-							sum={subTotal}
+							sum={Math.round(subTotal)}
 							display
 							label={formatMessage({ id: "shipping.subtotal" })}
 						/>
 						<SummaryItem
-							sum={promotionValue}
+							sum={Math.round(promotionValue)}
 							display={!!promotion}
 							label={formatMessage({ id: "shipping.promotion" })}
 						/>
@@ -152,7 +152,7 @@ const CartSidebar = ({ toggleSidebar }) => {
 							</>
 						)}
 						<SummaryItem
-							sum={orderTotal}
+							sum={Math.round(orderTotal)}
 							display
 							label={formatMessage({ id: "cart.th.total" })}
 						/>

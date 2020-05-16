@@ -92,13 +92,12 @@ const Details = ({
 	};
 
 	const handleCart = async () => {
+		const { skus: fetchedSkus } = await getProductById(id);
+		const productFound = fetchedSkus.edges.find(
+			item => item.node.id === selectedVariant.id
+		);
+
 		if (itemProduct?.quantity >= 1) {
-			const { skus: fetchedSkus } = await getProductById(id);
-
-			const productFound = fetchedSkus.edges.find(
-				item => item.node.id === selectedVariant.id
-			);
-
 			if (productFound.node.quantity + itemProduct.quantity >= quantity) {
 				addCustomQuantityByProduct({
 					dispatch,
@@ -108,15 +107,12 @@ const Details = ({
 				});
 				dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
 			} else {
-				alertOutOfStock(formatMessage({ id: "product.out_of_stock" }));
+				alertOutOfStock(
+					formatMessage({ id: "product.out_of_stock" }),
+					formatMessage({ id: "button.go_back" })
+				);
 			}
 		} else {
-			const { skus: fetchedSkus } = await getProductById(id);
-
-			const productFound = fetchedSkus.edges.find(
-				item => item.node.id === selectedVariant.id
-			);
-
 			if (productFound.node.quantity >= quantity) {
 				addToCart(addToCartPayload);
 				dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });

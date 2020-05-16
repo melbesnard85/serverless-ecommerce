@@ -30,7 +30,7 @@ export default ({
 						<>
 							{formatMessage({ id: "checkout.pay" })}{" "}
 							<NumberFormat
-								value={price}
+								value={Math.round(price)}
 								displayType={"text"}
 								thousandSeparator={true}
 								prefix={currency}

@@ -5,14 +5,7 @@ import { useTheme } from "styled-components";
 import GlobalStyle from "components/theme/global-style";
 import { Wrapper } from "./styles";
 
-export default ({
-	children,
-	collections,
-	seoDetails,
-	checkout,
-	legal,
-	preview
-}) => {
+export default ({ children, collections, seoDetails, checkout, legal }) => {
 	const { fonts } = useTheme();
 
 	return (
@@ -37,7 +30,6 @@ export default ({
 					seoDetails={seoDetails}
 					checkout={checkout}
 					legal={legal}
-					preview={preview}
 				/>
 				<Wrapper>{children}</Wrapper>
 				<Footer

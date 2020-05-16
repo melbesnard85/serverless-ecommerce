@@ -5,7 +5,9 @@
 	"scripts": {
 		"dev": "next -p 3001",
 		"build": "next build",
-		"extract": "node ./src/scripts/default-lang && node ./src/scripts/extract"
+		"extract": "node ./src/scripts/default-lang && node ./src/scripts/extract",
+		"reset": "rm -rf .buildCache",
+		"clean": "rm -rf .buildCache && rm -rf .next"
 	},
 	"dependencies": {
 		"@formatjs/cli": "^1.1.15",
@@ -22,7 +24,7 @@
 		"formik": "^2.0.8",
 		"glob": "^7.1.6",
 		"intl": "^1.2.5",
-		"next": "^9.3.2",
+		"next": "^9.4.0",
 		"next-images": "^1.2.0",
 		"nprogress": "^0.2.0",
 		"react": "16.12.0",
@@ -51,6 +53,7 @@
 		"eslint": "^6.8.0",
 		"eslint-plugin-react": "^7.17.0",
 		"husky": "^4.2.0",
+		"js-levenshtein": "^1.1.6",
 		"lint-staged": "^10.0.2",
 		"prettier": "^1.19.1"
 	},

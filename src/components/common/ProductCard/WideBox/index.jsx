@@ -18,7 +18,8 @@ import {
 export default ({
 	slug,
 	name,
-	description,
+	shortDescription,
+	quantity,
 	images,
 	// gender,
 	skus,
@@ -85,9 +86,14 @@ export default ({
 					<Stars stars={stars} />
 				</div> */}
 				</Header>
-				<Body dangerouslySetInnerHTML={{ __html: description }} />
+				<Body dangerouslySetInnerHTML={{ __html: shortDescription }} />
 				<Footer>
-					<Button onClick={onClick} type="button" variant="primary">
+					<Button
+						onClick={onClick}
+						disabled={parseFloat(quantity) <= 0}
+						type="button"
+						variant="primary"
+					>
 						<FormattedMessage id="button.add_to_cart" />
 					</Button>
 				</Footer>
