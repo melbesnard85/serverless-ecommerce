@@ -57,7 +57,7 @@ export default ({
 						? localizedTitle
 							? formatMessage({ id: localizedTitle })
 							: title
-						: "Elliot Headless Pacakge"
+						: "Elliot Headless Package"
 				}
 			/>
 			<meta
