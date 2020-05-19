@@ -15,9 +15,7 @@ import {
 	PinterestIcon,
 	TwiterIcon
 } from "components/common/Icons/SocialIcon";
-import getProductById from "helpers/runtime/getProductById";
 import isEmpty from "helpers/isEmpty";
-import alertOutOfStock from "helpers/alertOutOfStock";
 import dynamic from "next/dynamic";
 import ToggleHidden from "components/common/ToggleHidden";
 import {
@@ -92,36 +90,17 @@ const Details = ({
 	};
 
 	const handleCart = async () => {
-		const { skus: fetchedSkus } = await getProductById(id);
-		const productFound = fetchedSkus.edges.find(
-			item => item.node.id === selectedVariant.id
-		);
-
 		if (itemProduct?.quantity >= 1) {
-			if (productFound.node.quantity + itemProduct.quantity >= quantity) {
-				addCustomQuantityByProduct({
-					dispatch,
-					id,
-					skuId: selectedVariant.id,
-					quantity
-				});
-				dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
-			} else {
-				alertOutOfStock(
-					formatMessage({ id: "product.out_of_stock" }),
-					formatMessage({ id: "button.go_back" })
-				);
-			}
+			addCustomQuantityByProduct({
+				dispatch,
+				id,
+				skuId: selectedVariant.id,
+				quantity
+			});
+			dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
 		} else {
-			if (productFound.node.quantity >= quantity) {
-				addToCart(addToCartPayload);
-				dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
-			} else {
-				alertOutOfStock(
-					formatMessage({ id: "product.out_of_stock" }),
-					formatMessage({ id: "button.go_back" })
-				);
-			}
+			addToCart(addToCartPayload);
+			dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
 		}
 	};
 
