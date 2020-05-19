@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { useIntl, FormattedMessage } from "react-intl";
-import getProductById from "helpers/runtime/getProductById";
-import alertOutOfStock from "helpers/alertOutOfStock";
 import Container from "components/common/Container";
 import PageTitle from "components/common/PageTitle";
 import Dropdown from "components/common/Dropdown";
@@ -29,42 +27,22 @@ export default ({ products, collection }) => {
 	const { dispatch: dispatchSidebar } = useDispatchSidebar();
 
 	const handleCart = async (node, item) => {
-		const { skus: fetchedSkus } = await getProductById(node.id);
-
-		const productFound = fetchedSkus.edges.find(
-			item => item.node.id === node.skus?.edges[0]?.node.id
-		);
-
 		if (item?.quantity >= 1) {
-			if (productFound.node.quantity + item.quantity >= 1) {
-				addQuantityByProduct({
-					dispatch,
-					skuId: item.sku.id
-				});
-				dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
-			} else {
-				alertOutOfStock(
-					formatMessage({ id: "product.out_of_stock" }),
-					formatMessage({ id: "button.go_back" })
-				);
-			}
+			addQuantityByProduct({
+				dispatch,
+				skuId: item.sku.id
+			});
+			dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
 		} else {
-			if (productFound.node.quantity >= 1) {
-				addToCart({
-					dispatch,
-					payload: {
-						product: node,
-						quantity: 1,
-						sku: node.skus?.edges[0]?.node
-					}
-				});
-				dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
-			} else {
-				alertOutOfStock(
-					formatMessage({ id: "product.out_of_stock" }),
-					formatMessage({ id: "button.go_back" })
-				);
-			}
+			addToCart({
+				dispatch,
+				payload: {
+					product: node,
+					quantity: 1,
+					sku: node.skus?.edges[0]?.node
+				}
+			});
+			dispatchSidebar({ type: "OPEN_SIDEBAR", content: "cart" });
 		}
 	};
 
