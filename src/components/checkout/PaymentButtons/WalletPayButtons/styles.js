@@ -5,7 +5,5 @@ export const IconWrapper = styled.span`
 	overflow: visible;
 	position: relative;
 	${({ paddingLeft }) => paddingLeft && `padding-left: ${paddingLeft}rem`};
-	height: 1em;
-	bottom: 50%;
-	transform: translateY(-25%);
+	height: 20px;
 `;
