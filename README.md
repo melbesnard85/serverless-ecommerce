@@ -1,6 +1,6 @@
 # Elliot's Vercel Next.js Ecommerce Boilerplate
 
-![ELLIOT X VERCEL](elliot-vercel.jpg)
+![ELLIOT X VERCEL](elliot-vercel-next-js-package.jpg)
 
 ## Features
 
