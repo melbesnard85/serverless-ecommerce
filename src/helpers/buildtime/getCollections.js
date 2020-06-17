@@ -1,6 +1,6 @@
 import axios from "axios";
-import buildCache from "helpers/buildtime/buildCache";
 import collectionsQuery from "queries/collections";
+import buildCache from "helpers/buildtime/buildCache";
 import {
 	ELLIOT_STORE_FRONT_ID,
 	ELLIOT_DOMAIN_ID,

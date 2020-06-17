@@ -40,55 +40,14 @@
 
 ### Locally
 
-#### Using the CLI
-
-1. Install the [Elliot CLI](https://github.com/helloiamelliot/elliot-cli) running
-
-   ```bash
-   npm i -g elliot-cli
-   ```
-
-   Or
-
-   ```bash
-   yarn global add elliot-cli
-   ```
-
-2. Login to Elliot via the CLI running
-
-   ```bash
-   elliot login
-   ```
-
-3. Get your domain and experience by running
-
-   ```bash
-   elliot deploy
-   ```
-
-4. Choose your domain ID and experience and it will automatically clone this boilerplate and handle everything for you
-
-   > It will create `.env.development` file with the right env variables keys//values, delete any files unrelated and install the dependencies used.
-
-5. To enable Apple Pay, you will have to get the Apple verification file and place it under `/public/.well-known/`
-
-   > Follow this [Guide](https://github.com/helloiamelliot/elliot-serverless-ecommerce#enabling-digital-wallets) to get the Apple verification file
-
-6. Run the following commands to start the server locally on port `3000`:
+1. Install [Vercel CLI](https://vercel.com/download)
+2. Follow the [Online](https://github.com/helloiamelliot/elliot-serverless-ecommerce#online) steps
+3. Clone your GitHub repository and run `vercel env pull .env.local` to get your environment variables from Vercel dashboard
+4. Run the following commands to start the server locally on port `3001`:
 
    ```bash
    yarn run dev
    ```
-
-7. When deploying to [Vercel](https://vercel.co), you will have to set the [Now secrets](https://vercel.co/docs/v2/build-step#adding-secrets), so ensure that they've been added:
-
-   ```bash
-   now secrets add base_url <your domain name>
-   now secrets add elliot_env_variables <your Elliot env variable>
-   now --prod
-   ```
-
-   > You can get these values from your `.env.development` file
 
 ## Custom theme
 

@@ -18,8 +18,7 @@
 
 # misc
 .DS_Store
-.env.development
-.env.production
+.env.local
 
 # debug
 npm-debug.log*
@@ -27,6 +26,3 @@ yarn-debug.log*
 yarn-error.log*
 
 .now
-
-# build cache
-.buildCache
