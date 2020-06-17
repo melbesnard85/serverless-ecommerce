@@ -29,6 +29,12 @@
 2. Choose a domain space
 3. Click on "Get Headless"
 4. Follow the onboarding and you will be good to go!
+5. For the env variables names, use the following:
+
+   ```bash
+   NEXT_PUBLIC_ELLIOT_ENV_VARIABLES
+   NEXT_PUBLIC_BASE_URL
+   ```
 
 > To enable Apple Pay, you will have to get the Apple verification file and place it under `/public/.well-known/`
 
