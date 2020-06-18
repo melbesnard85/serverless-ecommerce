@@ -42,7 +42,7 @@
 
 > You might have to upgrade your Vercel account in order to prolonge the serverless function running time to go over 10 seconds in order to enable all the benefits of SSG on run time
 
-[Video tutorial](https://youtu.be/SJ92bp1y1I0)
+[Video tutorial](https://youtu.be/mrUwZgFENs8)
 
 ### Locally
 
