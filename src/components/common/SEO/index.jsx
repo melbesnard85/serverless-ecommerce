@@ -20,7 +20,7 @@ export default ({
 				<link
 					rel="shortcut icon"
 					type="image/x-icon"
-					href={`https://storage.googleapis.com/elliot-images-us/${seoDetails.lookAndFeel.seo.favicon}`}
+					href={`https://res.cloudinary.com/helloiamelliot/${seoDetails.lookAndFeel.seo.favicon}`}
 				/>
 			)}
 			<meta

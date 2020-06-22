@@ -12,7 +12,7 @@ const Brand = ({ seoDetails }) => {
 				<Wrapper>
 					{seoDetails?.lookAndFeel?.seo?.logo ? (
 						<Img
-							src={`https://storage.googleapis.com/elliot-images-us/${seoDetails.lookAndFeel.seo.logo}`}
+							src={`https://res.cloudinary.com/helloiamelliot/${seoDetails.lookAndFeel.seo.logo}`}
 							alt={seoDetails.lookAndFeel.seo.title}
 						/>
 					) : (

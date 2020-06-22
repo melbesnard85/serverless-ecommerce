@@ -39,18 +39,18 @@ export default ({
 								.map(({ node }) => (
 									<img
 										key={node.id}
-										src={`https://storage.googleapis.com/elliot-images-us/${node.image}`}
+										src={`https://res.cloudinary.com/helloiamelliot/${node.image}`}
 										alt={name}
 									/>
 								))
 						) : (
 							<>
 								<img
-									src={`https://storage.googleapis.com/elliot-images-us/${images.edges[0].node.image}`}
+									src={`https://res.cloudinary.com/helloiamelliot/${images.edges[0].node.image}`}
 									alt={name}
 								/>
 								<img
-									src={`https://storage.googleapis.com/elliot-images-us/${images.edges[0].node.image}`}
+									src={`https://res.cloudinary.com/helloiamelliot/${images.edges[0].node.image}`}
 									alt={name}
 								/>
 							</>

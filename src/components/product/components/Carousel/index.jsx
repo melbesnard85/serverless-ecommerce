@@ -50,7 +50,7 @@ const Carousel = ({ name, images }) => {
 						<div key={id}>
 							<img
 								className="swiper-zoom-container"
-								src={`https://storage.googleapis.com/elliot-images-us/${image}`}
+								src={`https://res.cloudinary.com/helloiamelliot/${image}`}
 								alt={name}
 							/>
 						</div>
@@ -62,7 +62,7 @@ const Carousel = ({ name, images }) => {
 			<div>
 				<img
 					className="swiper-zoom-container"
-					src={`https://storage.googleapis.com/elliot-images-us/${images.edges[0].node.image}`}
+					src={`https://res.cloudinary.com/helloiamelliot/${images.edges[0].node.image}`}
 					alt={name}
 				/>
 			</div>

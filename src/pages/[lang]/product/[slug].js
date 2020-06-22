@@ -27,7 +27,7 @@ const Product = ({ legal, product, collections, seoDetails, checkout }) => (
 						product.description?.replace(/(<([^>]+)>)/gi, "")
 					}
 					location={product.slug}
-					cover={`https://storage.googleapis.com/elliot-images-us/${product.images?.edges[0]?.node?.image}`}
+					cover={`https://res.cloudinary.com/helloiamelliot/${product.images?.edges[0]?.node?.image}`}
 					seoDetails={seoDetails}
 				/>
 				<ProductItem {...product} globalCollections={collections} />
