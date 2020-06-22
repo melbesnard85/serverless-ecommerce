@@ -21,19 +21,19 @@ export default ({ quantity, slug, name, images, skus, onClick, locale }) => {
 									<img
 										key={node.id}
 										className={i === 1 ? "secondary" : 0}
-										src={`https://storage.googleapis.com/elliot-images-us/${node.image}`}
+										src={`https://res.cloudinary.com/helloiamelliot/${node.image}`}
 										alt={name}
 									/>
 								))
 						) : (
 							<>
 								<img
-									src={`https://storage.googleapis.com/elliot-images-us/${images.edges[0].node.image}`}
+									src={`https://res.cloudinary.com/helloiamelliot/${images.edges[0].node.image}`}
 									alt={name}
 								/>
 								<img
 									className="secondary"
-									src={`https://storage.googleapis.com/elliot-images-us/${images.edges[0].node.image}`}
+									src={`https://res.cloudinary.com/helloiamelliot/${images.edges[0].node.image}`}
 									alt={name}
 								/>
 							</>

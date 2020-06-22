@@ -70,7 +70,7 @@ const ShoppingCart = () => {
 														>
 															<a>
 																<img
-																	src={`https://storage.googleapis.com/elliot-images-us/${images.edges[0].node.image}`}
+																	src={`https://res.cloudinary.com/helloiamelliot/${images.edges[0].node.image}`}
 																	alt={name}
 																/>
 															</a>
